@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid"
+// import { v4 as uuidv4 } from "uuid"
 export default {
     name:"AddTodo",
     data(){
@@ -20,12 +20,12 @@ export default {
         addTodo(e){
             e.preventDefault()
             const newTodo = {
-                id: uuidv4(),
                 title: this.title,
                 completed: false
             }
             // send up to parent
             this.$emit('add-todo', newTodo);
+            this.title = '';
         }
     }
 }
@@ -44,7 +44,13 @@ export default {
     .btn{
         display: inline-block;
         background: rgb(137, 183, 236);
-        padding: 5px;
+        padding: 1rem;
         cursor: pointer;
+        color: white;
+    }
+
+    .btn:hover{
+        background: white;
+        color:rgb(137, 183, 236);
     }
 </style>
